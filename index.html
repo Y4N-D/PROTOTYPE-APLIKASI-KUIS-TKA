@@ -317,6 +317,74 @@ textarea{resize:vertical;min-height:76px;font-family:var(--serif)}
   .mapel-grid{grid-template-columns:1fr 1fr}
 }
 
+/* ---------- dropdown sendiri ---------- */
+.pilih{position:relative}
+.pilih-tombol{display:flex;align-items:center;gap:10px;width:100%;padding:11px 13px;border:1px solid var(--garis);
+  border-radius:var(--rk);background:#FBFCFE;font-weight:600;text-align:left;transition:border-color .15s,box-shadow .15s}
+.pilih-tombol:hover{border-color:var(--tinta-3)}
+.pilih.buka .pilih-tombol{border-color:var(--biru);box-shadow:0 0 0 3px rgba(29,95,224,.14);background:#fff}
+.pilih-label{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pilih-panah{width:17px;height:17px;flex:0 0 17px;fill:none;stroke:var(--tinta-2);stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round;transition:transform .18s}
+.pilih.buka .pilih-panah{transform:rotate(180deg)}
+.pilih-daftar{position:absolute;z-index:30;left:0;right:0;top:calc(100% + 6px);background:#fff;
+  border:1px solid var(--garis);border-radius:14px;box-shadow:var(--bayang-2);padding:6px;
+  max-height:262px;overflow:auto;opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .16s ease,transform .16s ease,visibility .16s}
+.pilih.buka .pilih-daftar{opacity:1;visibility:visible;transform:none}
+.pilih-opsi{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 11px;
+  border-radius:10px;font-size:14.5px;font-weight:600;background:none}
+.pilih-opsi span{flex:1}
+.pilih-opsi:hover{background:var(--garis-2)}
+.pilih-opsi.aktif{background:var(--biru-muda);color:var(--biru-tua);font-weight:800}
+.pilih-centang{width:16px;height:16px;flex:0 0 16px;fill:none;stroke:var(--biru);stroke-width:3;
+  stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.pilih-opsi.aktif .pilih-centang{opacity:1}
+
+/* ---------- dialog sendiri ---------- */
+.tirai{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:20px;
+  background:rgba(15,27,51,.52)}
+.tirai.buka{display:flex;animation:naik .18s ease-out both}
+.dialog{background:#fff;border-radius:20px;padding:24px;width:100%;max-width:420px;box-shadow:var(--bayang-2)}
+.dialog h2{margin:0 0 6px;font-size:20px}
+.dialog p{font-size:14px;line-height:1.55;margin:0}
+.dialog-kaki{display:flex;gap:9px;justify-content:flex-end;margin-top:20px;flex-wrap:wrap}
+.dialog-kaki .btn{flex:1;min-width:112px;justify-content:center}
+@media (max-width:520px){ .dialog-kaki{flex-direction:column-reverse} .dialog-kaki .btn{width:100%} }
+
+/* ---------- editor materi ---------- */
+.bagian{padding:18px 20px}
+.bagian-kepala{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--garis-2)}
+.bagian-nomor{width:26px;height:26px;border-radius:9px;background:var(--biru);color:#fff;display:grid;place-items:center;
+  font-size:12.5px;font-weight:900;flex:0 0 26px}
+.bagian-kepala b{font-size:14.5px}
+.f-label{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:6px}
+.poin-baris,.opsi-baris{flex-wrap:nowrap;margin-bottom:8px;gap:9px}
+.poin-baris input,.opsi-baris input{flex:1}
+.poin-titik{width:7px;height:7px;border-radius:50%;background:var(--biru);flex:0 0 7px}
+.kunci-tombol{width:38px;height:38px;flex:0 0 38px;border-radius:12px;border:2px solid var(--garis);background:#fff;
+  font-weight:900;color:var(--tinta-2);transition:.15s}
+.kunci-tombol:hover{border-color:var(--biru)}
+.kunci-tombol.aktif{background:var(--hijau);border-color:var(--hijau);color:#fff}
+.bingkai-bar{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:6px 0 12px}
+.bingkai-tab{width:36px;height:36px;border-radius:11px;background:var(--garis-2);font-weight:900;font-size:13.5px;
+  color:var(--tinta-2);transition:.15s}
+.bingkai-tab:hover{background:var(--biru-muda)}
+.bingkai-tab.aktif{background:var(--biru);color:#fff}
+.bingkai-tab.tambah{background:#fff;border:2px dashed var(--garis);color:var(--tinta-3);font-size:18px}
+.kanvas-bungkus{background:#0b0d16;border:5px solid #2a2f3f;border-radius:12px;padding:0;overflow:hidden;max-width:560px}
+.kanvas{display:grid;gap:0;width:100%;touch-action:none;-webkit-user-select:none;user-select:none}
+.kanvas .sel{aspect-ratio:1;border:0;padding:0;background:transparent;box-shadow:inset 0 0 0 .5px rgba(255,255,255,.07)}
+.kanvas .sel:hover{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.75)}
+.palet-alat{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:12px}
+.cat-tombol{width:32px;height:32px;border-radius:10px;border:2px solid var(--garis);background:#fff;padding:3px;transition:.12s}
+.cat-tombol i{display:block;width:100%;height:100%;border-radius:6px}
+.cat-tombol:hover{transform:translateY(-2px)}
+.cat-tombol.aktif{border-color:var(--biru);box-shadow:0 0 0 3px rgba(29,95,224,.18)}
+.cat-tombol.hapus i{background:repeating-conic-gradient(#E3EAF6 0% 25%, #fff 0% 50%) 0/10px 10px}
+.pratinjau.kecil-pra{flex:0 0 190px;max-width:190px}
+@media (max-width:900px){ .kanvas-bungkus{max-width:100%} .pratinjau.kecil-pra{flex:0 0 140px} }
+
 /* ---------- hasil ---------- */
 .cincin{position:relative;width:150px;height:150px;flex:0 0 150px}
 .cincin svg{transform:rotate(-90deg)}
@@ -396,6 +464,7 @@ textarea{resize:vertical;min-height:76px;font-family:var(--serif)}
 </header>
 
 <main id="app"></main>
+<div class="tirai" id="tirai"></div>
 
 <script>
 "use strict";
@@ -579,6 +648,7 @@ const S = {
   setelan: Simpan.baca(K_SETELAN, {pin:"1234", durasiBawaan:30, siswa:""}),
   sesi:null, adminTerbuka:false, suntingId:null, pesan:null, jamId:null,
   materi: Simpan.baca(K_MATERI, null),
+  modal:null, susun:null, editor:null, melukis:false,
   materiBuka:null, mapelBuka:null, suntingMateri:null, kuisJawab:{}, tabAdmin:"soal",
   terjawab: Simpan.baca(K_TERJAWAB, {}),
   saringBank:{mapel:"", cari:""}, saringArsip:{mapel:"", cari:""}, bukaArsip:null, efek:null
@@ -778,13 +848,71 @@ function susunBagian(bagian){
   }).join("\n\n");
 }
 
+
+/* ===== 6e. DROPDOWN SENDIRI ===== */
+function pilih(id, nilai, opsi, aksi, lebar){
+  const t = opsi.find(o=>o.n===nilai) || opsi[0] || {n:"",l:""};
+  return `<div class="pilih"${lebar?' style="max-width:'+lebar+'"':''}>
+    <input type="hidden" id="${e(id)}" value="${e(t.n)}">
+    <button type="button" class="pilih-tombol" data-buka-pilih="${e(id)}" aria-haspopup="listbox" aria-expanded="false">
+      <span class="pilih-label">${e(t.l)}</span>
+      <svg class="pilih-panah" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="pilih-daftar" role="listbox">
+      ${opsi.map(o=>`<button type="button" role="option" aria-selected="${o.n===t.n}"
+        class="pilih-opsi${o.n===t.n?' aktif':''}" data-pilih="${e(id)}" data-nilai="${e(o.n)}"
+        data-label="${e(o.l)}" data-aksi-pilih="${e(aksi||'')}">
+        <span>${e(o.l)}</span>
+        <svg class="pilih-centang" viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg>
+      </button>`).join("")}
+    </div>
+  </div>`;
+}
+function tutupPilih(){
+  document.querySelectorAll(".pilih.buka").forEach(p=>{
+    p.classList.remove("buka");
+    const b = p.querySelector(".pilih-tombol"); if(b) b.setAttribute("aria-expanded","false");
+  });
+}
+
+/* ===== 6f. DIALOG SENDIRI ===== */
+function dialog(o){ S.modal = o; gambar();
+  setTimeout(()=>{ const f = document.getElementById("modal-input") || document.querySelector("[data-modal-ok]"); if(f) f.focus(); }, 20); }
+function tutupDialog(){ S.modal = null; gambar(); }
+function konfirmasi(o){ dialog(Object.assign({jenis:"konfirmasi"}, o)); }
+function masukan(o){ dialog(Object.assign({jenis:"masukan"}, o)); }
+
+function gambarDialog(){
+  const t = document.getElementById("tirai");
+  if(!t) return;
+  const m = S.modal;
+  if(!m){ t.innerHTML = ""; t.classList.remove("buka"); return; }
+  const tombol = m.tombol || [{l:m.ok||"Lanjutkan", v:true, bahaya:m.bahaya}];
+  t.className = "tirai buka";
+  t.innerHTML = `<div class="dialog anim-pop" role="dialog" aria-modal="true" aria-labelledby="modal-judul">
+    <h2 id="modal-judul">${e(m.judul||"")}</h2>
+    ${m.pesan?`<p class="redup">${e(m.pesan)}</p>`:""}
+    ${m.jenis==="masukan"?`<label class="f" style="margin:14px 0 4px"><span>${e(m.label||"")}</span>
+      <input type="${m.rahasia?"password":"text"}" id="modal-input" value="${e(m.nilai||"")}"
+        ${m.angka?'inputmode="numeric"':''} placeholder="${e(m.contoh||"")}" maxlength="${m.maks||60}"></label>`:""}
+    ${m.galat?`<p class="kecil" style="color:var(--merah);margin:2px 0 0">${e(m.galat)}</p>`:""}
+    <div class="dialog-kaki">
+      <button class="btn hantu" data-modal-batal>${e(m.batal||"Batal")}</button>
+      ${tombol.map(b=>`<button class="btn${b.bahaya?" bahaya":""}" data-modal-ok data-modal-nilai="${e(String(b.v))}">${e(b.l)}</button>`).join("")}
+    </div>
+  </div>`;
+}
+
 /* ===== 7. KERANGKA ===== */
 const MENU = [["beranda","Beranda"],["susun","Latihan"],["materi","Materi"],["peringkat","Peringkat"],["riwayat","Riwayat"],["arsip","Bank soal"]];
 function pergi(t){
   if(S.sesi && !S.sesi.selesai && t!=="sesi"){
-    if(!confirm("Sesi yang sedang berjalan akan dihentikan. Lanjutkan?")) return;
-    hentikanJam(); S.sesi=null;
+    return konfirmasi({judul:"Hentikan sesi yang berjalan?", pesan:"Jawaban pada sesi ini tidak akan tersimpan.",
+      ok:"Hentikan sesi", bahaya:true, onOk:()=>{ hentikanJam(); S.sesi=null; lanjutPergi(t); }});
   }
+  lanjutPergi(t);
+}
+function lanjutPergi(t){
   S.tampilan=t; S.suntingId=null; if(t!=="materi"){ S.materiBuka=null; S.mapelBuka=null; } gambar();
 }
 function gambar(){
@@ -793,7 +921,7 @@ function gambar(){
   document.getElementById("saku").innerHTML = '<span class="saku">'+ILUS.permata("hdr",19)+st.poin+'</span>';
   const peta = {beranda:vBeranda,susun:vSusun,sesi:vSesi,hasil:vHasil,riwayat:vRiwayat,peringkat:vPeringkat,arsip:vArsip,materi:vMateri,admin:vAdmin};
   document.getElementById("app").innerHTML = (peta[S.tampilan]||vBeranda)();
-  if(S.tampilan==="susun") perbaruiSusun();
+  gambarDialog();
   window.scrollTo(0,0);
 }
 
@@ -890,66 +1018,63 @@ function kumpulanBab(n){
 
 /* ===== 9. SUSUN ===== */
 function vSusun(){
+  if(!S.susun) S.susun = {mode:"latihan", mapel:"", bab:"", jumlah:10, acak:"1", durasi:S.setelan.durasiBawaan};
+  const f = S.susun;
+  const bab = daftarBab(f.mapel);
+  if(f.bab && !bab.includes(f.bab)) f.bab = "";
+  const cocok = pilihSoal().length;
   return tarikPesan() + `
   <div class="kartu anim-naik">
     <h1>Susun sesi latihan</h1>
     <p class="redup">Pilih cakupan materi dan mode yang ingin dikerjakan.</p>
     <hr>
     <div class="grid2">
-      <label class="f"><span>Mode</span>
-        <select id="f-mode">
-          <option value="latihan">Latihan, pembahasan tiap soal</option>
-          <option value="simulasi">Simulasi ujian, bertimer</option>
-        </select></label>
-      <label class="f"><span>Mata pelajaran</span>
-        <select id="f-mapel"><option value="">Semua mata pelajaran</option>
-          ${daftarMapel().map(m=>'<option value="'+e(m)+'">'+e(m)+'</option>').join("")}</select></label>
+      <div class="f"><span>Mode</span>
+        ${pilih("f-mode", f.mode, [
+          {n:"latihan", l:"Latihan, pembahasan tiap soal"},
+          {n:"simulasi", l:"Simulasi ujian, bertimer"}], "susun:mode")}</div>
+      <div class="f"><span>Mata pelajaran</span>
+        ${pilih("f-mapel", f.mapel, [{n:"", l:"Semua mata pelajaran"}]
+          .concat(daftarMapel().map(m=>({n:m, l:m}))), "susun:mapel")}</div>
     </div>
-    <label class="f"><span>Bab atau materi</span>
-      <select id="f-bab"><option value="">Semua bab</option>
-        ${daftarBab("").map(b=>'<option value="'+e(b)+'">'+e(b)+'</option>').join("")}</select></label>
+    <div class="f"><span>Bab atau materi</span>
+        ${pilih("f-bab", f.bab, [{n:"", l:"Semua bab"}].concat(bab.map(b=>({n:b, l:b}))), "susun:bab")}</div>
     <div class="grid3">
-      <label class="f"><span>Jumlah soal</span><input type="number" id="f-jumlah" min="1" value="10"></label>
-      <label class="f"><span>Urutan</span><select id="f-acak"><option value="1">Diacak</option><option value="0">Berurutan</option></select></label>
-      <label class="f"><span>Durasi menit</span><input type="number" id="f-durasi" min="1" value="${S.setelan.durasiBawaan}"></label>
+      <label class="f"><span>Jumlah soal</span><input type="number" id="f-jumlah" min="1" value="${f.jumlah}"></label>
+      <div class="f"><span>Urutan</span>
+        ${pilih("f-acak", f.acak, [{n:"1", l:"Diacak"},{n:"0", l:"Berurutan"}], "susun:acak")}</div>
+      <label class="f"><span>Durasi menit</span><input type="number" id="f-durasi" min="1" value="${f.durasi}"></label>
     </div>
-    <p class="kecil redup" id="f-info"></p>
+    <p class="kecil redup">Soal yang cocok: ${cocok} butir.</p>
     <div class="baris" style="margin-top:10px">
-      <button class="btn besar" id="f-mulai">Mulai sekarang</button>
+      <button class="btn besar" id="f-mulai" ${cocok?"":"disabled"}>Mulai sekarang</button>
       <button class="btn hantu" data-nav="beranda">Batal</button>
     </div>
   </div>`;
 }
-function perbaruiSusun(){
-  const m = document.getElementById("f-mapel"); if(!m) return;
-  const sb = document.getElementById("f-bab"), kini = sb.value, bab = daftarBab(m.value);
-  sb.innerHTML = '<option value="">Semua bab</option>'+bab.map(b=>'<option value="'+e(b)+'">'+e(b)+'</option>').join("");
-  if(bab.includes(kini)) sb.value = kini;
-  const t = pilihSoal().length;
-  document.getElementById("f-info").textContent = "Soal yang cocok: "+t+" butir.";
-  document.getElementById("f-mulai").disabled = t===0;
-}
+
 function pilihSoal(){
-  const m = document.getElementById("f-mapel").value, b = document.getElementById("f-bab").value;
-  return S.bank.filter(s=>(!m||s.mapel===m)&&(!b||s.bab===b));
+  const f = S.susun || {};
+  return S.bank.filter(s=>(!f.mapel||s.mapel===f.mapel)&&(!f.bab||s.bab===f.bab));
 }
+
 function mulaiSesi(){
-  const mode = document.getElementById("f-mode").value;
-  const jumlah = Math.max(1,parseInt(document.getElementById("f-jumlah").value)||10);
-  const ac = document.getElementById("f-acak").value==="1";
-  const durasi = Math.max(1,parseInt(document.getElementById("f-durasi").value)||30);
-  const mapel = document.getElementById("f-mapel").value, bab = document.getElementById("f-bab").value;
+  const f = S.susun;
+  const jumlah = Math.max(1, parseInt(document.getElementById("f-jumlah").value)||10);
+  const durasi = Math.max(1, parseInt(document.getElementById("f-durasi").value)||30);
+  f.jumlah = jumlah; f.durasi = durasi;
   let k = pilihSoal();
   if(!k.length){ pesan("Belum ada soal yang cocok.","err"); return gambar(); }
-  if(ac) k = acak(k);
-  k = k.slice(0,jumlah);
+  if(f.acak==="1") k = acak(k);
+  k = k.slice(0, jumlah);
   S.setelan.durasiBawaan = durasi; simpanSetelan();
-  S.sesi = {mode, ids:k.map(s=>s.id), jawaban:{}, ragu:{}, idx:0, selesai:false, mulai:Date.now(),
-    batas: mode==="simulasi" ? Date.now()+durasi*60000 : null,
-    cakupan:(mapel||"Semua mapel")+(bab?" / "+bab:""), hasil:null};
+  S.sesi = {mode:f.mode, ids:k.map(s=>s.id), jawaban:{}, ragu:{}, idx:0, selesai:false, mulai:Date.now(),
+    batas: f.mode==="simulasi" ? Date.now()+durasi*60000 : null,
+    cakupan:(f.mapel||"Semua mapel")+(f.bab?" / "+f.bab:""), hasil:null};
   S.tampilan="sesi"; gambar();
-  if(mode==="simulasi") mulaiJam();
+  if(f.mode==="simulasi") mulaiJam();
 }
+
 function mulaiJam(){
   hentikanJam();
   S.jamId = setInterval(()=>{
@@ -1052,7 +1177,10 @@ function selesaikan(otomatis){
   const z = S.sesi; if(!z) return;
   if(!otomatis){
     const belum = z.ids.filter(id=>!z.jawaban[id]).length;
-    if(!confirm(belum?"Masih ada "+belum+" soal kosong. Selesaikan sekarang?":"Selesaikan sesi dan lihat hasilnya?")) return;
+    return konfirmasi({judul:"Selesaikan sesi?",
+      pesan: belum ? "Masih ada "+belum+" soal yang belum dijawab. Soal kosong dihitung salah."
+                   : "Seluruh soal sudah dijawab. Hasil dan pembahasan akan ditampilkan.",
+      ok:"Selesaikan", onOk:()=>selesaikan(true)});
   }
   hentikanJam();
   let benar=0,salah=0,kosong=0; const perBab={};
@@ -1342,8 +1470,7 @@ function vArsip(){
   return tarikPesan() + kepala + `
   <div class="kartu">
     <div class="baris">
-      <select id="ar-mapel" style="max-width:230px"><option value="">Semua mata pelajaran</option>
-        ${mapelArsip.map(m=>'<option value="'+e(m)+'" '+(f.mapel===m?"selected":"")+'>'+e(m)+'</option>').join("")}</select>
+      ${pilih("ar-mapel", f.mapel, [{n:"",l:"Semua mata pelajaran"}].concat(mapelArsip.map(m=>({n:m,l:m}))), "saring:arsip", "240px")}
       <input type="text" id="ar-cari" placeholder="Cari kata dalam soal" value="${e(f.cari)}" style="max-width:270px">
       <span class="kanan kecil redup">${tampil.length} dari ${S.bank.length} butir terbuka</span>
     </div>
@@ -1393,8 +1520,7 @@ function vAdmin(){
     </div>
     <hr>
     <div class="baris">
-      <select id="a-mapel" style="max-width:230px"><option value="">Semua mata pelajaran</option>
-        ${daftarMapel().map(m=>'<option value="'+e(m)+'" '+(f.mapel===m?"selected":"")+'>'+e(m)+'</option>').join("")}</select>
+      ${pilih("a-mapel", f.mapel, [{n:"",l:"Semua mata pelajaran"}].concat(daftarMapel().map(m=>({n:m,l:m}))), "saring:bank", "240px")}
       <input type="text" id="a-cari" placeholder="Cari kata dalam soal" value="${e(f.cari)}" style="max-width:270px">
       <span class="kanan kecil redup">${tampil.length} dari ${S.bank.length} butir</span>
     </div>
@@ -1439,7 +1565,8 @@ function vSunting(){
         <datalist id="l-mapel">${daftarMapel().map(m=>'<option value="'+e(m)+'">').join("")}</datalist></label>
       <label class="f"><span>Bab atau materi</span><input type="text" id="q-bab" value="${e(s.bab)}" list="l-bab" placeholder="Peluang">
         <datalist id="l-bab">${daftarBab("").map(b=>'<option value="'+e(b)+'">').join("")}</datalist></label>
-      <label class="f"><span>Tingkat</span><select id="q-tingkat">${["Mudah","Sedang","Sulit"].map(t=>'<option '+(s.tingkat===t?"selected":"")+'>'+t+'</option>').join("")}</select></label>
+      <div class="f"><span>Tingkat</span>
+        ${pilih("q-tingkat", s.tingkat||"Sedang", ["Mudah","Sedang","Sulit"].map(t=>({n:t,l:t})), "")}</div>
     </div>
     <label class="f"><span>Stimulus, boleh dikosongkan</span><textarea id="q-stimulus" placeholder="Teks bacaan atau wacana pengantar">${e(s.stimulus)}</textarea></label>
     <label class="f"><span>Pertanyaan</span><textarea id="q-tanya" placeholder="Tulis pokok pertanyaan">${e(s.pertanyaan)}</textarea></label>
@@ -1487,9 +1614,10 @@ function impor(berkas){
       if(!Array.isArray(data)) throw 0;
       const bersih = data.filter(d=>d&&d.pertanyaan&&Array.isArray(d.opsi)).map(d=>Object.assign({},d,{id:d.id||idBaru()}));
       if(!bersih.length) throw 0;
-      S.bank = confirm("Tekan OK untuk menambahkan "+bersih.length+" soal ke bank yang ada. Tekan Batal untuk mengganti seluruh isi bank.")
-        ? S.bank.concat(bersih) : bersih;
-      simpanBank(); pesan(bersih.length+" soal berhasil dimuat.","ok");
+      return konfirmasi({judul:"Muat "+bersih.length+" soal", pesan:"Pilih cara memasukkan soal dari berkas ini.",
+        tombol:[{l:"Tambahkan", v:"gabung"},{l:"Ganti semua", v:"ganti", bahaya:true}],
+        onOk:v=>{ S.bank = v==="gabung" ? S.bank.concat(bersih) : bersih;
+          simpanBank(); pesan(bersih.length+" soal berhasil dimuat.","ok"); }});
     }catch(err){ pesan("Berkas tidak dapat dibaca. Pastikan berupa JSON berisi larik soal.","err"); }
     gambar();
   };
@@ -1531,68 +1659,338 @@ function vKelolaMateri(){
   </div>`;
 }
 
+
+
+/* ===== 14c. EDITOR MATERI TANPA KODE ===== */
+const NAMA_BAGIAN = {teks:"Paragraf", poin:"Daftar poin", visual:"Gambar bergerak", kuis:"Periksa pemahaman"};
+const NAMA_WARNA = {"0":"Hitam","1":"Biru malam","2":"Biru","3":"Biru langit","4":"Hijau muda","5":"Hijau",
+  "6":"Kuning","7":"Oranye","8":"Merah","9":"Putih","a":"Abu terang","b":"Abu","c":"Abu gelap",
+  "d":"Kulit","e":"Ungu","f":"Toska","g":"Biru es"};
+
+function bingkaiKosong(kolom, baris){
+  return Array.from({length:baris||18}, ()=>".".repeat(kolom||32));
+}
+function ukuranBingkai(b){
+  const bk = (b.bingkai && b.bingkai[0]) ? b.bingkai[0] : bingkaiKosong();
+  return {kolom: bk[0].length, baris: bk.length};
+}
+function setSel(bingkai, x, y, c){
+  const b = bingkai[y];
+  bingkai[y] = b.slice(0,x) + c + b.slice(x+1);
+}
+function bagianBaru(jenis){
+  if(jenis==="teks") return {jenis:"teks", isi:""};
+  if(jenis==="poin") return {jenis:"poin", isi:[""]};
+  if(jenis==="visual") return {jenis:"visual", judul:"", ket:"", fps:2, bingkai:[bingkaiKosong(32,18)]};
+  return {jenis:"kuis", tanya:"", opsi:["",""], kunci:0, alasan:""};
+}
+
+function bukaEditor(id){
+  const asli = id==="baru" ? {mapel:"", judul:"", ringkas:"", bagian:[]} : S.materi.find(x=>x.id===id);
+  S.editor = {id, data: JSON.parse(JSON.stringify(asli)), bagian:0, bingkai:0, warna:"6", alat:"kuas", lanjutan:false};
+  S.suntingMateri = id;
+  gambar();
+}
+
 function vSuntingMateri(){
-  const baru = S.suntingMateri === "baru";
-  const m = baru ? {mapel:"Pendidikan Pancasila", judul:"", ringkas:"", bagian:[]}
-                 : S.materi.find(x=>x.id===S.suntingMateri);
-  if(!m){ S.suntingMateri = null; return vKelolaMateri(); }
-  const palet = Object.entries(PALET_PIKSEL).map(([k,v])=>
-    `<span class="cat"><i style="background:${v}"></i>${k}</span>`).join("");
+  if(!S.editor) bukaEditor(S.suntingMateri);
+  const ed = S.editor, m = ed.data, baru = ed.id==="baru";
+  if(ed.lanjutan) return vSuntingLanjutan();
   return tarikPesan() + `
   <div class="kartu anim-naik">
-    <h1 style="margin:0 0 14px">${baru?"Materi baru":"Sunting materi"}</h1>
-    <div class="grid2">
-      <label class="f"><span>Mata pelajaran</span><input type="text" id="mt-mapel" value="${e(m.mapel)}" list="l-mt-mapel">
-        <datalist id="l-mt-mapel">${uniq(S.materi.map(x=>x.mapel)).map(x=>'<option value="'+e(x)+'">').join("")}</datalist></label>
-      <label class="f"><span>Judul</span><input type="text" id="mt-judul" value="${e(m.judul)}"></label>
-    </div>
-    <label class="f"><span>Ringkasan satu kalimat</span><input type="text" id="mt-ringkas" value="${e(m.ringkas)}"></label>
-    <label class="f"><span>Isi materi</span>
-      <textarea id="mt-isi" style="min-height:340px;font-family:ui-monospace,Consolas,monospace;font-size:12.5px;line-height:1.45">${e(susunBagian(m.bagian))}</textarea></label>
-    <details class="bantuan">
-      <summary>Panduan penulisan isi materi</summary>
-      <p class="kecil">Setiap bagian diawali penanda pada baris tersendiri.</p>
-      <pre>#teks
-Paragraf biasa ditulis di sini.
-
-#poin
-- butir pertama
-- butir kedua
-
-#visual Judul gambar | 2 | Keterangan di bawah gambar
-(18 baris peta piksel, tiap baris 32 karakter)
----
-(bingkai berikutnya, dipisah tiga tanda hubung)
-
-#kuis
-T: pertanyaannya
-- pilihan salah
-* pilihan benar diberi tanda bintang
-A: alasan jawaban</pre>
-      <p class="kecil">Angka setelah judul visual adalah kecepatan bingkai per detik. Titik berarti kosong. Warna memakai kode berikut.</p>
-      <div class="palet">${palet}</div>
-    </details>
     <div class="baris">
-      <button class="btn" data-aksi="materi-simpan">Simpan materi</button>
-      <button class="btn hantu" data-aksi="materi-batal">Batal</button>
+      <h1 style="margin:0">${baru?"Materi baru":"Sunting materi"}</h1>
+      <span class="kanan"></span>
+      <button class="btn hantu kecil" data-ed="mode-lanjutan">Mode lanjutan</button>
+    </div>
+    <hr>
+    <div class="grid2">
+      <div class="f"><span>Mata pelajaran</span>
+        ${pilih("ed-mapel", m.mapel, [{n:"",l:"Pilih mata pelajaran"}]
+          .concat(uniq(S.materi.map(x=>x.mapel).concat(daftarMapel())).map(x=>({n:x,l:x}))), "ed:mapel")}</div>
+      <label class="f"><span>Judul materi</span><input type="text" id="ed-judul" value="${e(m.judul)}" placeholder="Contoh: Musyawarah untuk Mufakat"></label>
+    </div>
+    <label class="f"><span>Ringkasan satu kalimat</span><input type="text" id="ed-ringkas" value="${e(m.ringkas)}" placeholder="Satu kalimat yang menjelaskan isi materi"></label>
+  </div>
+
+  ${m.bagian.length ? m.bagian.map((b,i)=>kartuBagian(b,i,m.bagian.length)).join("")
+    : '<div class="kartu"><div class="kosong"><h2>Materi masih kosong</h2><p>Tambahkan bagian pertama lewat tombol di bawah.</p></div></div>'}
+
+  <div class="kartu">
+    <h3>Tambah bagian</h3>
+    <div class="baris">
+      <button class="btn hantu" data-ed="tambah" data-jenis="teks">Paragraf</button>
+      <button class="btn hantu" data-ed="tambah" data-jenis="poin">Daftar poin</button>
+      <button class="btn hantu" data-ed="tambah" data-jenis="visual">Gambar bergerak</button>
+      <button class="btn hantu" data-ed="tambah" data-jenis="kuis">Periksa pemahaman</button>
+    </div>
+  </div>
+
+  <div class="kartu">
+    <div class="baris">
+      <button class="btn" data-ed="simpan">Simpan materi</button>
+      <button class="btn hantu" data-ed="batal">Batal</button>
+      <span class="kanan kecil redup">${m.bagian.length} bagian</span>
     </div>
   </div>`;
 }
 
-function simpanMateriForm(){
-  const a = id => (document.getElementById(id).value||"").trim();
-  const mapel = a("mt-mapel"), judul = a("mt-judul");
-  if(!mapel || !judul){ pesan("Mata pelajaran dan judul wajib diisi.","err"); return gambar(); }
-  const bagian = uraikanBagian(document.getElementById("mt-isi").value);
-  if(!bagian.length){ pesan("Isi materi masih kosong atau penandanya keliru.","err"); return gambar(); }
-  const isi = {mapel, judul, ringkas:a("mt-ringkas"), bagian};
-  if(S.suntingMateri === "baru"){ S.materi.push(Object.assign({id:"mt"+idBaru()}, isi)); pesan("Materi baru tersimpan.","ok"); }
-  else { const i = S.materi.findIndex(x=>x.id===S.suntingMateri); S.materi[i] = Object.assign({}, S.materi[i], isi); pesan("Perubahan tersimpan.","ok"); }
-  simpanMateri(); S.suntingMateri = null; gambar();
+function kartuBagian(b, i, total){
+  const kepala = `
+    <div class="bagian-kepala">
+      <span class="bagian-nomor">${i+1}</span>
+      <b>${e(NAMA_BAGIAN[b.jenis]||b.jenis)}</b>
+      <span class="kanan"></span>
+      <button class="btn hantu kecil" data-ed="naik" data-i="${i}" ${i===0?"disabled":""} title="Naikkan">&#9650;</button>
+      <button class="btn hantu kecil" data-ed="turun" data-i="${i}" ${i===total-1?"disabled":""} title="Turunkan">&#9660;</button>
+      <button class="btn hantu kecil" data-ed="hapus-bagian" data-i="${i}">Hapus</button>
+    </div>`;
+
+  if(b.jenis==="teks") return `<div class="kartu bagian">${kepala}
+    <textarea data-isi="${i}" placeholder="Tulis satu paragraf penjelasan">${e(b.isi)}</textarea></div>`;
+
+  if(b.jenis==="poin") return `<div class="kartu bagian">${kepala}
+    ${b.isi.map((x,k)=>`<div class="baris poin-baris">
+      <span class="poin-titik"></span>
+      <input type="text" data-poin="${i}-${k}" value="${e(x)}" placeholder="Butir ke-${k+1}">
+      <button class="btn hantu kecil" data-ed="poin-hapus" data-i="${i}" data-k="${k}" ${b.isi.length<2?"disabled":""}>Hapus</button>
+    </div>`).join("")}
+    <button class="btn hantu kecil" data-ed="poin-tambah" data-i="${i}" style="margin-top:8px">Tambah butir</button></div>`;
+
+  if(b.jenis==="kuis") return `<div class="kartu bagian">${kepala}
+    <label class="f"><span>Pertanyaan</span><textarea data-tanya="${i}" placeholder="Tulis pertanyaannya">${e(b.tanya)}</textarea></label>
+    <span class="f-label">Pilihan jawaban, tekan lingkaran untuk menandai kunci</span>
+    ${b.opsi.map((o,k)=>`<div class="baris opsi-baris">
+      <button class="kunci-tombol ${b.kunci===k?'aktif':''}" data-ed="kuis-kunci" data-i="${i}" data-k="${k}"
+        title="Jadikan kunci">${"ABCDE"[k]}</button>
+      <input type="text" data-opsi="${i}-${k}" value="${e(o)}" placeholder="Pilihan ${"ABCDE"[k]}">
+      <button class="btn hantu kecil" data-ed="opsi-hapus" data-i="${i}" data-k="${k}" ${b.opsi.length<3?"disabled":""}>Hapus</button>
+    </div>`).join("")}
+    ${b.opsi.length<5?`<button class="btn hantu kecil" data-ed="opsi-tambah" data-i="${i}" style="margin:8px 0 14px">Tambah pilihan</button>`:""}
+    <label class="f"><span>Alasan jawaban</span><textarea data-alasan="${i}" placeholder="Jelaskan mengapa kunci itu benar">${e(b.alasan)}</textarea></label></div>`;
+
+  return `<div class="kartu bagian">${kepala}${editorVisual(b,i)}</div>`;
+}
+
+function editorVisual(b, i){
+  const ed = S.editor;
+  const aktif = ed.bagian===i;
+  const {kolom, baris} = ukuranBingkai(b);
+  const nb = Math.min(ed.bingkai, b.bingkai.length-1);
+  if(!aktif) return `
+    <div class="grid2">
+      <label class="f"><span>Judul gambar</span><input type="text" data-vjudul="${i}" value="${e(b.judul||"")}"></label>
+      <label class="f"><span>Keterangan</span><input type="text" data-vket="${i}" value="${e(b.ket||"")}"></label>
+    </div>
+    <div class="baris">
+      <span class="pratinjau kecil-pra">${gambarPiksel([b.bingkai[0]],0,{polos:true,diam:true})}</span>
+      <div><p class="kecil redup" style="margin:0 0 8px">${b.bingkai.length} bingkai, ${b.fps||2} bingkai per detik</p>
+      <button class="btn" data-ed="gambar-buka" data-i="${i}">Buka penyunting gambar</button></div>
+    </div>`;
+
+  const sel = [];
+  for(let y=0;y<baris;y++){
+    for(let x=0;x<kolom;x++){
+      const c = b.bingkai[nb][y][x];
+      const w = PALET_PIKSEL[c];
+      sel.push(`<button class="sel${w?"":" kosong"}" data-sel="${x}-${y}" style="${w?`background:${w}`:""}"></button>`);
+    }
+  }
+  return `
+    <div class="grid2">
+      <label class="f"><span>Judul gambar</span><input type="text" data-vjudul="${i}" value="${e(b.judul||"")}"></label>
+      <label class="f"><span>Keterangan</span><input type="text" data-vket="${i}" value="${e(b.ket||"")}"></label>
+    </div>
+    <div class="bingkai-bar">
+      ${b.bingkai.map((f,k)=>`<button class="bingkai-tab ${k===nb?'aktif':''}" data-ed="bingkai-pilih" data-k="${k}">${k+1}</button>`).join("")}
+      <button class="bingkai-tab tambah" data-ed="bingkai-baru" title="Bingkai baru">+</button>
+      <span class="kanan"></span>
+      <button class="btn hantu kecil" data-ed="bingkai-salin">Duplikat bingkai</button>
+      <button class="btn hantu kecil" data-ed="bingkai-hapus" ${b.bingkai.length<2?"disabled":""}>Hapus bingkai</button>
+    </div>
+    <div class="kanvas-bungkus">
+      <div class="kanvas" id="kanvas" style="grid-template-columns:repeat(${kolom},1fr)">${sel.join("")}</div>
+    </div>
+    <div class="palet-alat">
+      ${Object.keys(PALET_PIKSEL).map(c=>`<button class="cat-tombol ${ed.warna===c&&ed.alat==="kuas"?'aktif':''}"
+        data-ed="warna" data-c="${c}" title="${e(NAMA_WARNA[c]||c)}"><i style="background:${PALET_PIKSEL[c]}"></i></button>`).join("")}
+      <button class="cat-tombol hapus ${ed.alat==="penghapus"?'aktif':''}" data-ed="alat" data-a="penghapus" title="Penghapus"><i></i></button>
+      <span class="kanan"></span>
+      <button class="btn hantu kecil" data-ed="isi-semua">Isi seluruh bingkai</button>
+      <button class="btn hantu kecil" data-ed="bersihkan">Kosongkan bingkai</button>
+    </div>
+    <div class="baris" style="margin-top:14px;align-items:flex-start">
+      <div class="f" style="max-width:190px"><span>Kecepatan</span>
+        ${pilih("ed-fps-"+i, String(b.fps||2), [{n:"1",l:"1 bingkai per detik"},{n:"2",l:"2 bingkai per detik"},
+          {n:"3",l:"3 bingkai per detik"},{n:"4",l:"4 bingkai per detik"}], "ed:fps")}</div>
+      <div><span class="f-label">Pratinjau bergerak</span>
+        <span class="pratinjau kecil-pra">${gambarPiksel(b.bingkai, b.fps)}</span></div>
+      <span class="kanan"></span>
+      <button class="btn hantu kecil" data-ed="gambar-tutup">Tutup penyunting</button>
+    </div>`;
+}
+
+function vSuntingLanjutan(){
+  const m = S.editor.data;
+  const palet = Object.entries(PALET_PIKSEL).map(([k,v])=>
+    `<span class="cat"><i style="background:${v}"></i>${k}</span>`).join("");
+  return tarikPesan() + `
+  <div class="kartu anim-naik">
+    <div class="baris">
+      <h1 style="margin:0">Mode lanjutan</h1>
+      <span class="kanan"></span>
+      <button class="btn hantu kecil" data-ed="mode-formulir">Kembali ke formulir</button>
+    </div>
+    <p class="redup kecil">Mode ini menyunting seluruh isi materi sebagai teks berpenanda. Perubahan di sini akan terbaca kembali oleh formulir.</p>
+    <label class="f" style="margin-top:14px"><span>Isi materi</span>
+      <textarea id="ed-mentah" style="min-height:360px;font-family:ui-monospace,Consolas,monospace;font-size:12.5px;line-height:1.45">${e(susunBagian(m.bagian))}</textarea></label>
+    <details class="bantuan">
+      <summary>Panduan penanda</summary>
+      <pre>#teks
+Paragraf biasa.
+
+#poin
+- butir pertama
+
+#visual Judul | 2 | Keterangan
+(baris peta piksel)
+---
+(bingkai berikutnya)
+
+#kuis
+T: pertanyaan
+- pilihan salah
+* pilihan benar
+A: alasan</pre>
+      <div class="palet">${palet}</div>
+    </details>
+    <div class="baris">
+      <button class="btn" data-ed="terapkan-mentah">Terapkan perubahan</button>
+      <button class="btn hantu" data-ed="mode-formulir">Batal</button>
+    </div>
+  </div>`;
+}
+
+function simpanEditor(){
+  const m = S.editor.data;
+  if(!m.mapel || !m.judul) return pesan("Mata pelajaran dan judul wajib diisi.","err"), gambar();
+  if(!m.bagian.length) return pesan("Tambahkan sekurang-kurangnya satu bagian.","err"), gambar();
+  const kosong = m.bagian.findIndex(b =>
+    (b.jenis==="teks" && !b.isi.trim()) ||
+    (b.jenis==="poin" && !b.isi.some(x=>x.trim())) ||
+    (b.jenis==="kuis" && (!b.tanya.trim() || b.opsi.filter(o=>o.trim()).length<2)));
+  if(kosong>=0) return pesan("Bagian ke-"+(kosong+1)+" masih kosong.","err"), gambar();
+  m.bagian.forEach(b=>{ if(b.jenis==="poin") b.isi = b.isi.filter(x=>x.trim());
+                        if(b.jenis==="kuis") b.opsi = b.opsi.filter(o=>o.trim()); });
+  if(S.editor.id==="baru"){ S.materi.push(Object.assign({id:"mt"+idBaru()}, m)); pesan("Materi baru tersimpan.","ok"); }
+  else { const i=S.materi.findIndex(x=>x.id===S.editor.id); S.materi[i]=Object.assign({}, S.materi[i], m); pesan("Perubahan tersimpan.","ok"); }
+  simpanMateri(); S.editor=null; S.suntingMateri=null; gambar();
+}
+
+function aksiEditor(t){
+  const ed = S.editor, m = ed.data;
+  const i = t.dataset.i!==undefined ? +t.dataset.i : ed.bagian;
+  const b = m.bagian[i];
+  switch(t.dataset.ed){
+    case "tambah": m.bagian.push(bagianBaru(t.dataset.jenis));
+      if(t.dataset.jenis==="visual"){ ed.bagian=m.bagian.length-1; ed.bingkai=0; } break;
+    case "naik": [m.bagian[i-1], m.bagian[i]] = [m.bagian[i], m.bagian[i-1]]; break;
+    case "turun": [m.bagian[i+1], m.bagian[i]] = [m.bagian[i], m.bagian[i+1]]; break;
+    case "hapus-bagian":
+      return konfirmasi({judul:"Hapus bagian ini?", pesan:"Isi bagian tersebut akan hilang.", ok:"Hapus", bahaya:true,
+        onOk:()=>{ m.bagian.splice(i,1); if(ed.bagian>=m.bagian.length) ed.bagian=-1; }});
+    case "poin-tambah": b.isi.push(""); break;
+    case "poin-hapus": b.isi.splice(+t.dataset.k,1); break;
+    case "opsi-tambah": b.opsi.push(""); break;
+    case "opsi-hapus": b.opsi.splice(+t.dataset.k,1); if(b.kunci>=b.opsi.length) b.kunci=0; break;
+    case "kuis-kunci": b.kunci = +t.dataset.k; break;
+    case "gambar-buka": ed.bagian=i; ed.bingkai=0; break;
+    case "gambar-tutup": ed.bagian=-1; break;
+    case "bingkai-pilih": ed.bingkai=+t.dataset.k; break;
+    case "bingkai-baru": { const u=ukuranBingkai(b); b.bingkai.push(bingkaiKosong(u.kolom,u.baris)); ed.bingkai=b.bingkai.length-1; break; }
+    case "bingkai-salin": b.bingkai.splice(ed.bingkai+1,0, b.bingkai[ed.bingkai].slice()); ed.bingkai++; break;
+    case "bingkai-hapus": b.bingkai.splice(ed.bingkai,1); if(ed.bingkai>=b.bingkai.length) ed.bingkai=b.bingkai.length-1; break;
+    case "bersihkan": { const u=ukuranBingkai(b); b.bingkai[ed.bingkai]=bingkaiKosong(u.kolom,u.baris); break; }
+    case "isi-semua": { const u=ukuranBingkai(b);
+      b.bingkai[ed.bingkai]=Array.from({length:u.baris},()=>ed.warna.repeat(u.kolom)); break; }
+    case "warna": ed.warna=t.dataset.c; ed.alat="kuas"; break;
+    case "alat": ed.alat=t.dataset.a; break;
+    case "mode-lanjutan": ed.lanjutan=true; break;
+    case "mode-formulir": ed.lanjutan=false; break;
+    case "terapkan-mentah": {
+      const hasil = uraikanBagian(document.getElementById("ed-mentah").value);
+      if(!hasil.length){ pesan("Penanda tidak terbaca.","err"); break; }
+      m.bagian = hasil; ed.lanjutan=false; pesan("Perubahan diterapkan.","ok"); break;
+    }
+    case "simpan": return simpanEditor();
+    case "batal": S.editor=null; S.suntingMateri=null; break;
+  }
+  gambar();
+}
+
+function lukis(target){
+  const ed = S.editor; if(!ed) return;
+  const b = ed.data.bagian[ed.bagian]; if(!b || b.jenis!=="visual") return;
+  const [x,y] = target.dataset.sel.split("-").map(Number);
+  const c = ed.alat==="penghapus" ? "." : ed.warna;
+  if(b.bingkai[ed.bingkai][y][x] === c) return;
+  setSel(b.bingkai[ed.bingkai], x, y, c);
+  const w = PALET_PIKSEL[c];
+  target.style.background = w || "";
+  target.classList.toggle("kosong", !w);
 }
 
 /* ===== 15. PERISTIWA ===== */
 document.addEventListener("click", ev=>{
+  // dialog
+  if(ev.target.closest("[data-modal-ok]")){
+    const m = S.modal; if(!m) return;
+    const nilai = ev.target.closest("[data-modal-ok]").dataset.modalNilai;
+    const isi = m.jenis==="masukan" ? (document.getElementById("modal-input")||{}).value||"" : (nilai==="true"?true:nilai);
+    const galat = m.onOk ? m.onOk(isi) : null;
+    if(typeof galat === "string"){ m.galat = galat; if(m.jenis==="masukan") m.nilai = isi; return gambar(); }
+    return tutupDialog();
+  }
+  if(ev.target.closest("[data-modal-batal]") || ev.target.id==="tirai") return tutupDialog();
+
+  // dropdown
+  const sel = ev.target.closest("[data-sel]");
+  if(sel) return lukis(sel);
+  const aksiEd = ev.target.closest("[data-ed]");
+  if(aksiEd && S.editor) return aksiEditor(aksiEd);
+
+  const buka = ev.target.closest("[data-buka-pilih]");
+  if(buka){
+    const kotak = buka.parentElement, sedang = kotak.classList.contains("buka");
+    tutupPilih();
+    if(!sedang){ kotak.classList.add("buka"); buka.setAttribute("aria-expanded","true"); }
+    return;
+  }
+  const opsi = ev.target.closest("[data-pilih]");
+  if(opsi){
+    const id = opsi.dataset.pilih, nilai = opsi.dataset.nilai, aksi = opsi.dataset.aksiPilih;
+    const simpan = document.getElementById(id);
+    if(simpan) simpan.value = nilai;
+    const kotak = opsi.closest(".pilih");
+    kotak.querySelector(".pilih-label").textContent = opsi.dataset.label;
+    kotak.querySelectorAll(".pilih-opsi").forEach(o=>{
+      const sama = o.dataset.nilai===nilai;
+      o.classList.toggle("aktif", sama); o.setAttribute("aria-selected", sama);
+    });
+    tutupPilih();
+    if(aksi){
+      const [grup, medan] = aksi.split(":");
+      if(grup==="susun"){ S.susun[medan] = nilai; if(medan==="mapel") S.susun.bab=""; return gambar(); }
+      if(grup==="saring"){ (medan==="bank"?S.saringBank:S.saringArsip).mapel = nilai; return gambar(); }
+      if(grup==="ed" && S.editor){
+        if(medan==="mapel"){ S.editor.data.mapel = nilai; return; }
+        if(medan==="fps"){ S.editor.data.bagian[S.editor.bagian].fps = +nilai; return gambar(); }
+      }
+    }
+    return;
+  }
+  if(!ev.target.closest(".pilih")) tutupPilih();
+
   if(ev.target.id==="f-mulai") return mulaiSesi();
   if(ev.target.id==="pin-ok"){
     const v = document.getElementById("pin").value;
@@ -1604,11 +2002,11 @@ document.addEventListener("click", ev=>{
   if(t.dataset.nav) return pergi(t.dataset.nav);
   if(t.dataset.opsi) return jawab(t.dataset.opsi);
   if(t.dataset.lompat!==undefined){ S.sesi.idx=parseInt(t.dataset.lompat); return gambar(); }
-  if(t.dataset.materiSunting){ S.suntingMateri=t.dataset.materiSunting; return gambar(); }
+  if(t.dataset.materiSunting){ return bukaEditor(t.dataset.materiSunting); }
   if(t.dataset.materiHapus){
-    if(!confirm("Hapus materi ini secara permanen?")) return;
-    S.materi=S.materi.filter(x=>x.id!==t.dataset.materiHapus); simpanMateri();
-    pesan("Materi dihapus.","ok"); return gambar();
+    const id = t.dataset.materiHapus;
+    return konfirmasi({judul:"Hapus materi?", pesan:"Seluruh bagian dan visualisasi di dalamnya ikut terhapus.",
+      ok:"Hapus", bahaya:true, onOk:()=>{ S.materi=S.materi.filter(x=>x.id!==id); simpanMateri(); pesan("Materi dihapus.","ok"); }});
   }
   if(t.dataset.mapel){ S.mapelBuka=t.dataset.mapel; S.tampilan="materi"; return gambar(); }
   if(t.dataset.materi){ S.materiBuka=t.dataset.materi; S.tampilan="materi"; return gambar(); }
@@ -1625,26 +2023,27 @@ document.addEventListener("click", ev=>{
     pesan("Salinan soal dibuat.","ok"); return gambar();
   }
   if(t.dataset.hapus){
-    if(!confirm("Hapus butir soal ini secara permanen?")) return;
-    S.bank=S.bank.filter(x=>x.id!==t.dataset.hapus); simpanBank(); pesan("Soal dihapus.","ok"); return gambar();
+    const id = t.dataset.hapus;
+    return konfirmasi({judul:"Hapus butir soal?", pesan:"Butir ini akan hilang permanen dari bank soal.",
+      ok:"Hapus", bahaya:true, onOk:()=>{ S.bank=S.bank.filter(x=>x.id!==id); simpanBank(); pesan("Soal dihapus.","ok"); }});
   }
   switch(t.dataset.aksi){
     case "prev": S.sesi.idx--; return gambar();
     case "next": S.sesi.idx++; return gambar();
     case "ragu": { const id=S.sesi.ids[S.sesi.idx]; S.sesi.ragu[id]=!S.sesi.ragu[id]; return gambar(); }
     case "selesai": return selesaikan(false);
-    case "ganti-siswa": {
-      const n = prompt("Nama siswa yang akan dipakai:", S.setelan.siswa||"");
-      if(n!==null){ S.setelan.siswa=n.trim().slice(0,28); simpanSetelan(); pesan("Nama siswa diperbarui.","ok"); gambar(); }
-      return;
-    }
+    case "ganti-siswa":
+      return masukan({judul:"Ganti nama siswa", pesan:"Nama ini dipakai untuk menyimpan poin, riwayat, dan peringkat di perangkat ini.",
+        label:"Nama siswa", nilai:S.setelan.siswa||"", contoh:"Tulis nama lengkap", ok:"Simpan nama", maks:28,
+        onOk:v=>{ if(!v.trim()) return "Nama tidak boleh kosong.";
+          S.setelan.siswa=v.trim().slice(0,28); simpanSetelan(); pesan("Nama siswa diperbarui.","ok"); }});
     case "tutup-materi": S.materiBuka=null; return gambar();
     case "tutup-mapel": S.materiBuka=null; S.mapelBuka=null; return gambar();
     case "tab-materi": S.tabAdmin="materi"; S.suntingId=null; return gambar();
     case "tab-soal": S.tabAdmin="soal"; S.suntingMateri=null; return gambar();
-    case "materi-baru": S.suntingMateri="baru"; return gambar();
-    case "materi-batal": S.suntingMateri=null; return gambar();
-    case "materi-simpan": return simpanMateriForm();
+    case "materi-baru": return bukaEditor("baru");
+    case "materi-batal": S.editor=null; S.suntingMateri=null; return gambar();
+
     case "materi-ekspor": {
       const url=URL.createObjectURL(new Blob([JSON.stringify(S.materi,null,2)],{type:"application/json"}));
       const a=document.createElement("a"); a.href=url; a.download="materi-tka.json"; a.click();
@@ -1660,24 +2059,36 @@ document.addEventListener("click", ev=>{
     case "ekspor": return ekspor();
     case "impor": return document.getElementById("berkas").click();
     case "kosongkan":
-      if(!confirm("Seluruh soal akan dihapus. Pastikan Anda sudah mengekspor cadangan. Lanjutkan?")) return;
-      S.bank=[]; simpanBank(); pesan("Bank soal dikosongkan.","ok"); return gambar();
-    case "ganti-pin": {
-      const p = prompt("PIN baru, gunakan angka saja:");
-      if(p&&p.trim()){ S.setelan.pin=p.trim(); simpanSetelan(); pesan("PIN diperbarui.","ok"); gambar(); }
-      return;
+      return konfirmasi({judul:"Kosongkan seluruh bank soal?",
+        pesan:"Semua butir akan hilang. Pastikan Anda sudah menekan Ekspor bank soal lebih dulu.",
+        ok:"Kosongkan", bahaya:true, onOk:()=>{ S.bank=[]; simpanBank(); pesan("Bank soal dikosongkan.","ok"); }});
+    case "ganti-pin":
+      return masukan({judul:"Ganti PIN pengelola", pesan:"PIN menahan siswa agar tidak membuka panel pengelolaan.",
+        label:"PIN baru", nilai:"", rahasia:true, angka:true, contoh:"Minimal empat angka", ok:"Simpan PIN", maks:12,
+        onOk:v=>{ if(v.trim().length<4) return "PIN minimal empat karakter.";
+          S.setelan.pin=v.trim(); simpanSetelan(); pesan("PIN diperbarui.","ok"); }});
+    case "hapus-riwayat": {
+      const n = siswaKini();
+      return konfirmasi({judul:"Hapus riwayat "+n+"?",
+        pesan:"Poin, rentetan, dan arsip soal terjawab milik nama ini ikut terhapus.",
+        ok:"Hapus riwayat", bahaya:true, onOk:()=>{
+          S.riwayat=S.riwayat.filter(r=>(r.siswa||"Tamu")!==n); simpanRiwayat();
+          delete S.terjawab[n]; simpanTerjawab(); pesan("Riwayat dikosongkan.","ok"); }});
     }
-    case "hapus-riwayat":
-      if(!confirm("Hapus seluruh riwayat latihan milik "+siswaKini()+"?")) return;
-      S.riwayat=S.riwayat.filter(r=>(r.siswa||"Tamu")!==siswaKini()); simpanRiwayat();
-      delete S.terjawab[siswaKini()]; simpanTerjawab();
-      pesan("Riwayat dikosongkan.","ok"); return gambar();
   }
 });
+document.addEventListener("pointerdown", ev=>{
+  if(ev.target.closest("[data-sel]")){ S.melukis = true; }
+});
+document.addEventListener("pointerup", ()=>{ S.melukis = false; });
+document.addEventListener("pointercancel", ()=>{ S.melukis = false; });
+document.addEventListener("pointermove", ev=>{
+  if(!S.melukis) return;
+  const t = document.elementFromPoint(ev.clientX, ev.clientY);
+  if(t && t.dataset && t.dataset.sel) lukis(t);
+});
+
 document.addEventListener("change", ev=>{
-  if(ev.target.id==="f-mapel"||ev.target.id==="f-bab") return perbaruiSusun();
-  if(ev.target.id==="a-mapel"){ S.saringBank.mapel=ev.target.value; return gambar(); }
-  if(ev.target.id==="ar-mapel"){ S.saringArsip.mapel=ev.target.value; return gambar(); }
   if(ev.target.id==="berkas"&&ev.target.files[0]) return impor(ev.target.files[0]);
   if(ev.target.id==="berkas-materi"&&ev.target.files[0]){
     const p=new FileReader();
@@ -1687,9 +2098,10 @@ document.addEventListener("change", ev=>{
         if(!Array.isArray(d)) throw 0;
         const bersih=d.filter(x=>x&&x.judul&&Array.isArray(x.bagian)).map(x=>Object.assign({},x,{id:x.id||"mt"+idBaru()}));
         if(!bersih.length) throw 0;
-        S.materi = confirm("Tekan OK untuk menambahkan "+bersih.length+" materi. Tekan Batal untuk mengganti seluruh materi.")
-          ? S.materi.concat(bersih) : bersih;
-        simpanMateri(); pesan(bersih.length+" materi dimuat.","ok");
+        return konfirmasi({judul:"Muat "+bersih.length+" materi", pesan:"Pilih cara memasukkan materi dari berkas ini.",
+          tombol:[{l:"Tambahkan", v:"gabung"},{l:"Ganti semua", v:"ganti", bahaya:true}],
+          onOk:v=>{ S.materi = v==="gabung" ? S.materi.concat(bersih) : bersih;
+            simpanMateri(); pesan(bersih.length+" materi dimuat.","ok"); }});
       }catch(err){ pesan("Berkas materi tidak dapat dibaca.","err"); }
       gambar();
     };
@@ -1697,6 +2109,20 @@ document.addEventListener("change", ev=>{
   }
 });
 document.addEventListener("input", ev=>{
+  if(S.editor){
+    const t = ev.target, m = S.editor.data, v = t.value;
+    if(t.id==="ed-judul"){ m.judul = v; return; }
+    if(t.id==="ed-ringkas"){ m.ringkas = v; return; }
+    if(t.dataset.isi!==undefined){ m.bagian[+t.dataset.isi].isi = v; return; }
+    if(t.dataset.tanya!==undefined){ m.bagian[+t.dataset.tanya].tanya = v; return; }
+    if(t.dataset.alasan!==undefined){ m.bagian[+t.dataset.alasan].alasan = v; return; }
+    if(t.dataset.vjudul!==undefined){ m.bagian[+t.dataset.vjudul].judul = v; return; }
+    if(t.dataset.vket!==undefined){ m.bagian[+t.dataset.vket].ket = v; return; }
+    if(t.dataset.poin!==undefined){ const [a,b2]=t.dataset.poin.split("-").map(Number); m.bagian[a].isi[b2]=v; return; }
+    if(t.dataset.opsi!==undefined){ const [a,b2]=t.dataset.opsi.split("-").map(Number); m.bagian[a].opsi[b2]=v; return; }
+  }
+  if(ev.target.id==="f-jumlah" && S.susun){ S.susun.jumlah = ev.target.value; return; }
+  if(ev.target.id==="f-durasi" && S.susun){ S.susun.durasi = ev.target.value; return; }
   if(ev.target.id==="a-cari" || ev.target.id==="ar-cari"){
     const kunci = ev.target.id;
     (kunci==="a-cari" ? S.saringBank : S.saringArsip).cari = ev.target.value;
@@ -1705,9 +2131,17 @@ document.addEventListener("input", ev=>{
   }
 });
 document.addEventListener("keydown", ev=>{
+  if(ev.key==="Escape"){
+    if(S.modal) return tutupDialog();
+    if(document.querySelector(".pilih.buka")) return tutupPilih();
+  }
+  if(S.modal && ev.key==="Enter"){
+    const b = document.querySelector("[data-modal-ok]"); if(b){ ev.preventDefault(); b.click(); }
+    return;
+  }
   if(ev.key==="Enter"&&ev.target.id==="pin"){ document.getElementById("pin-ok").click(); return; }
-  if(S.tampilan!=="sesi"||!S.sesi) return;
-  if(ev.target.matches("input,textarea,select")) return;
+  if(S.tampilan!=="sesi"||!S.sesi||S.modal) return;
+  if(ev.target.matches("input,textarea")) return;
   const k = ev.key.toUpperCase();
   if(HURUF.includes(k)) jawab(k);
   else if(ev.key==="ArrowRight"&&S.sesi.idx<S.sesi.ids.length-1){ S.sesi.idx++; gambar(); }
